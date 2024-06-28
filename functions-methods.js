@@ -71,7 +71,9 @@ function checkEmailValidity(emailAddress) {
   if (emailAddress.includes("@")) {
     hasPeriodInDomainAndAtSymbol = emailAddress.split("@")[1].includes(".");
   }
-  // Return true if the email address is valid (no comma, no period at end, has "@" and period in domain), otherwise it will return false.
+// Fail-fast: Return false immediately if any invalid condition is met
+// (contains a comma, ends with a period, or lacks a period in the domain part after the "@" symbol).
+// Otherwise, return true indicating the email address is valid.
   return !(hasComma || endsWithPeriod || !hasPeriodInDomainAndAtSymbol);
 }
 
