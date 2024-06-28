@@ -1,3 +1,11 @@
+// Added a function to print out result nicely in the console.
+// It is using an array and a callback function.
+function printOutResult(functionToUse, valueArr = multipleArr) {
+  for (let i = 0; i < valueArr.length; i++) {
+    console.log(`Array number: ${[i]} = ${functionToUse(valueArr[i])}`);
+  }
+}
+
 // Je gaat functies schrijven die we kunnen hergebruiken om een lijst met eindcijfers van studenten te checken. Je zult over de cijfers heen moeten itereren (hoe pak je dat aan?),
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
@@ -52,10 +60,7 @@ function cumLaude(grades) {
   return validatedArray.length;
 }
 console.log("\nOpracht 1b - Omschrijven tot een herbruikbare functie")
-
-for (let i = 0; i < multipleArr.length; i++) {
-  console.log(cumLaude(multipleArr[i]));
-}
+printOutResult(cumLaude);
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -98,9 +103,7 @@ function averageGrade(grades) {
   return sumOfGrades / grades.length;
 }
 console.log("\nOpracht 2b- Omschrijven tot een herbruikbare functie")
-for (let i = 0; i < multipleArr.length; i++) {
-  console.log(`Array number: ${averageGrade(multipleArr[i])}`);
-}
+printOutResult(averageGrade);
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
@@ -114,9 +117,7 @@ function averageGradeWIthTwoDecimals(grades) {
   return Math.round((sumOfGrades / grades.length) * 100) / 100;
 }
 console.log("\nOpracht 2c- Afronden op twee decimalen")
-for (let i = 0; i < multipleArr.length; i++) {
-  console.log(`Array number: ${averageGradeWIthTwoDecimals(multipleArr[i])}`);
-}
+printOutResult(averageGradeWIthTwoDecimals)
 
 /* Bonusopdracht: hoogste cijfer */
 
@@ -163,7 +164,5 @@ function highestGrade(grades) {
   return highestNumber;
 }
 
-console.log("\nOpracht 3b - Omschrijven tot een herbruikbare functie")
-for (let i = 0; i < multipleArr.length; i++) {
-  console.log(`Array number: ${highestGrade(multipleArr[i])}`);
-}
+console.log("\nOpdracht 3b - Omschrijven tot een herbruikbare functie")
+printOutResult(highestGrade);
