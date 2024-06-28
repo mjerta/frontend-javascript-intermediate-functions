@@ -16,6 +16,19 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+function amountOfDiplomasCumLaude(grades) {
+  const validatedArray = [];
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+      validatedArray.push(grades[i]);
+    }
+  }
+  return validatedArray.length;
+}
+
+console.log(amountOfDiplomasCumLaude(grades));
+
+
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -26,9 +39,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
-
-
-
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,7 +52,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
-
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -53,13 +62,9 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
-
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
-
-
 
 /* Bonusopdracht: hoogste cijfer */
 
@@ -71,7 +76,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
-
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
