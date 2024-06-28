@@ -16,7 +16,7 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
-function amountOfDiplomasCumLaude(grades) {
+function amountOfDiplomasCumLaude() {
   const validatedArray = [];
   for (let i = 0; i < grades.length; i++) {
     if (grades[i] >= 8) {
@@ -28,8 +28,6 @@ function amountOfDiplomasCumLaude(grades) {
 
 console.log(amountOfDiplomasCumLaude(grades));
 
-
-
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -39,6 +37,19 @@ console.log(amountOfDiplomasCumLaude(grades));
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
+
+function cumLaude(grades) {
+  console.log(grades);
+  const validatedArray = [];
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+      validatedArray.push(grades[i]);
+    }
+  }
+  return validatedArray.length;
+}
+
+console.log(cumLaude(grades));
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -52,10 +63,33 @@ console.log(amountOfDiplomasCumLaude(grades));
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+function averageGradeWithoutParemeter() {
+  let sumOfGrades = 0;
+  for (let i = 0; i < grades.length; i++) {
+    sumOfGrades += grades[i];
+  }
+  return sumOfGrades / grades.length;
+}
+
+console.log(averageGradeWithoutParemeter());
+
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+const multipleArr = [grades, [6, 4, 5], [8, 9, 4, 6, 10]]
+
+function averageGrade(grades) {
+  let sumOfGrades = 0;
+  for (let i = 0; i < grades.length; i++) {
+    sumOfGrades += grades[i];
+  }
+  return Math.round(sumOfGrades / grades.length);
+}
+
+for (let i = 0; i < multipleArr.length; i++) {
+  console.log(averageGrade(multipleArr[i]));
+}
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -65,6 +99,18 @@ console.log(amountOfDiplomasCumLaude(grades));
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+
+function averageGradeWIthTwoDecimals(grades) {
+  let sumOfGrades = 0;
+  for (let i = 0; i < grades.length; i++) {
+    sumOfGrades += grades[i];
+  }
+  return Math.round((sumOfGrades / grades.length) * 100) / 100;
+}
+
+for (let i = 0; i < multipleArr.length; i++) {
+  console.log(averageGradeWIthTwoDecimals(multipleArr[i]));
+}
 
 /* Bonusopdracht: hoogste cijfer */
 
@@ -77,6 +123,18 @@ console.log(amountOfDiplomasCumLaude(grades));
 
 // ---- Verwachte uitkomst: 9
 
+function highestGradeWithoutParameter() {
+  // This will give the first input as the reference. It will replaced if a higher number has been found.
+  let highestNumber = grades[0];
+  for (let i = 0; i < grades.length; i++) {
+      if (grades[i] > highestNumber) {
+        highestNumber = grades[i];
+    }
+  }
+  return highestNumber;
+}
+console.log(highestGradeWithoutParameter());
+
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -86,3 +144,19 @@ console.log(amountOfDiplomasCumLaude(grades));
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+const mulitpleArrTwo = [grades, [6,4,5], [8, 9, 4, 6, 10]];
+
+function highestGrade(grades) {
+  // This will give the first input as the reference. It will replaced if a higher number has been found.
+  let highestNumber = grades[0];
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highestNumber) {
+      highestNumber = grades[i];
+    }
+  }
+  return highestNumber;
+}
+
+for (let i = 0; i < mulitpleArrTwo.length; i++) {
+  console.log(`Highest number of array ${i}: ${highestGrade(mulitpleArrTwo[i])}`);
+}
